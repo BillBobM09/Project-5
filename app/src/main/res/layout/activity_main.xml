@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/GetStarted"
@@ -11,12 +11,15 @@
     <Button
         android:id="@+id/GetStartedButton"
         style="@style/Widget.Material3.Button"
-        android:layout_width="408dp"
-        android:layout_height="92dp"
+        android:layout_width="309dp"
+        android:layout_height="54dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
         android:layout_marginStart="60dp"
         android:layout_marginTop="545dp"
         android:layout_marginEnd="60dp"
-        android:layout_marginBottom="150dp"
+        android:layout_marginBottom="132dp"
         android:backgroundTint="#825C40"
         android:onClick="GetStartedClick"
         android:outlineAmbientShadowColor="#090505"
@@ -34,4 +37,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.222" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

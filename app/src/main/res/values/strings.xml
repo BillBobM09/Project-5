@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">RuCoffeeShop</string>
+    <string-array name="CofSize">
+        <item> Short </item>
+        <item> Tall </item>
+        <item> Grande </item>
+        <item> Venti </item>
+    </string-array>
 </resources>

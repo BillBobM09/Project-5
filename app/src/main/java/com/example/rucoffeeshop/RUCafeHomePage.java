@@ -16,11 +16,11 @@ public class RUCafeHomePage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       // setContentView(R.layout.ru_cafe_homepage);
-       // donutButton = findViewById(R.id.DonutButton);
-     //   coffeeButton = findViewById(R.id.CoffeeButton);
-      //  shoppingCart = findViewById(R.id.shoppingCartButton);
-       // storeOrders = findViewById(R.id.storeOrdersButton);
+        setContentView(R.layout.ru_menu_page);
+        donutButton = findViewById(R.id.DonutButton);
+        coffeeButton = findViewById(R.id.CoffeeButton);
+        shoppingCart = findViewById(R.id.shoppingCartButton);
+        storeOrders = findViewById(R.id.storeOrdersButton);
 
     }
     @Override
