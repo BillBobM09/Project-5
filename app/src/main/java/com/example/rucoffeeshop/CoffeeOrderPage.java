@@ -26,7 +26,7 @@ public class CoffeeOrderPage extends AppCompatActivity {
     private TextView CSub_Total;
     private Button AddOrder;
     private Double Total;
-//    private Double SubTotal;
+    private Double SubTotal;
     private ArrayList<String> CoffeOrdered = new ArrayList<>();
 
 
@@ -36,7 +36,8 @@ public class CoffeeOrderPage extends AppCompatActivity {
         setContentView(R.layout.coffee_page);
         Coffee Covfefe = MainController.getCovfefe();
         Order Shopcart = MainController.getShopCart();
-        Total = 1.89;
+        Total = 0.0;
+        SubTotal = 0.0;
         Covfefe.removeSelectedAddIn("Sweet Cream");
         Covfefe.removeSelectedAddIn("Mocha");
         Covfefe.removeSelectedAddIn("French Vanilla");
@@ -177,12 +178,13 @@ public class CoffeeOrderPage extends AppCompatActivity {
         }
 
         CSub_Total.setText("$" + String.format("%.2f", totalPrice));
-        this.Total = totalPrice;
+        this.SubTotal = totalPrice;
     }
 
     private void onAddOrderClick(Coffee Covfefe, Order Shopcart) {
         Integer num = (Integer) SP_Quantity.getSelectedItem();
         String size = (String) SP_Size.getSelectedItem();
+        this.Total = Total + SubTotal;
         this.CoffeOrdered.add(size + "(" + num + ") " + Covfefe.getSelectedAddIn());
         Shopcart.setCOrder(CoffeOrdered, Total);
 
