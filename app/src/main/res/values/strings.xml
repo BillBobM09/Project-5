@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">My Application</string>
+<string-array name ="CofSize">
+    <item>Short </item>
+    <item>Tall </item>
+    <item>Grande </item>
+    <item>Venti </item>
+
+
+</string-array>
+    <string-array name ="numbers">
+        <item>1</item>
+        <item>2 </item>
+        <item>3 </item>
+        <item>4</item>
+        <item>5 </item>
+        <item>6 </item>
+        <item>7</item>
+        <item>8 </item>
+        <item>9 </item>
+        <item>10 </item>
+        <item>11 </item>
+        <item>12 </item>
+
+    </string-array>
+<string-array name="donut_selection">
+<item>Vanilla Frosted</item>
+<item>Strawberry Frosted</item>
+<item>Chocolate Frosted</item>
+<item>Glazed</item>
+<item>Sugar</item>
+<item>Jelly</item>
+<item>Vanilla Sprinkled</item>
+<item>Boston Cream</item>
+<item>Bavarian Cream</item>
+<item>Plain</item>
+<item>Grain</item>
+<item>Raisin</item>
+</string-array>
+<string-array name="donut_price">
+<item>$1.59</item>
+    <item>$1.59</item>
+    <item>$1.59</item>
+    <item>$1.59</item>
+    <item>$1.59</item>
+    <item>$1.59</item>
+<item>$1.79</item>
+    <item>$1.79</item>
+    <item>$1.79</item>
+<item>$0.39</item>
+    <item>$0.39</item>
+    <item>$0.39</item>
+</string-array>
+
+</resources>

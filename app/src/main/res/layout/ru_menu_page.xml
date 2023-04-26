@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#A97653">
+
+    <TextView
+        android:id="@+id/ShoppingCart"
+        android:layout_width="123dp"
+        android:layout_height="64dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+
+        android:layout_marginStart="41dp"
+        android:layout_marginEnd="38dp"
+        android:layout_marginBottom="44dp"
+        android:gravity="center"
+        android:text="Shopping Cart"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/storeOrdersButton" />
+
+    <TextView
+        android:id="@+id/OrderCoffee"
+        android:layout_width="123dp"
+        android:layout_height="64dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+
+        android:layout_marginStart="252dp"
+        android:layout_marginTop="311dp"
+        android:layout_marginEnd="35dp"
+        android:gravity="center"
+        android:text="Order Coffee"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/DonutButton" />
+
+    <TextView
+        android:id="@+id/orderCoffee"
+        android:layout_width="123dp"
+        android:layout_height="64dp"
+        android:layout_alignParentStart="true"
+
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="46dp"
+        android:layout_marginBottom="48dp"
+        android:gravity="center"
+        android:text="Store Orders"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/storeOrdersButton" />
+
+    <ImageButton
+        android:id="@+id/CoffeeButton"
+        style="@style/Widget.AppCompat.ImageButton"
+        android:layout_width="182dp"
+        android:layout_height="170dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="130dp"
+        android:layout_marginEnd="11dp"
+        android:contentDescription="This is the button for ordering coffee"
+        android:onClick="coffeeClick"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/DonutButton"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/coffee_home" />
+
+    <ImageButton
+        android:id="@+id/shoppingCartButton"
+        style="@style/Widget.AppCompat.ImageButton"
+        android:layout_width="182dp"
+        android:layout_height="170dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="158dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="118dp"
+        android:contentDescription="This is the button to view your shopping cart"
+        android:onClick="shoppingCartClick"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/storeOrdersButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/DonutButton"
+        app:srcCompat="@drawable/order_list_image2" />
+
+    <ImageButton
+        android:id="@+id/storeOrdersButton"
+        style="@style/Widget.AppCompat.ImageButton"
+        android:layout_width="182dp"
+        android:layout_height="170dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="158dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="119dp"
+        android:contentDescription="This is the button that displays the current orders"
+        android:onClick="storeOrdersClick"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/shoppingCartButton"
+        app:layout_constraintTop_toBottomOf="@+id/CoffeeButton"
+        app:srcCompat="@drawable/shopping_cart_image2" />
+
+    <ImageButton
+        android:id="@+id/DonutButton"
+        style="@style/Widget.AppCompat.ImageButton"
+        android:layout_width="182dp"
+        android:layout_height="170dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="130dp"
+        android:layout_marginEnd="15dp"
+        android:contentDescription="This is the button for ordering donuts"
+        android:onClick="DonutClick"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toStartOf="@+id/CoffeeButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/donut_home_screen" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="123dp"
+        android:layout_height="64dp"
+
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="317dp"
+        android:gravity="center"
+        android:text="Order Donuts"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/DonutButton" />
+
+</RelativeLayout>
