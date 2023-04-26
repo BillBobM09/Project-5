@@ -13,6 +13,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.StringTokenizer;
 
 public class shoppingCartPage extends AppCompatActivity {
@@ -29,6 +30,7 @@ public class shoppingCartPage extends AppCompatActivity {
 
     private ListView BasketItems;
     private ArrayList<String> CustomerCart = new ArrayList<>();
+    private ArrayList<String> addcartlist = new ArrayList<>();
     private Double Sub_Total;
     private Double Sale_Tax = 0.0625;
     private Double Total;
@@ -39,7 +41,7 @@ public class shoppingCartPage extends AppCompatActivity {
         setContentView(R.layout.shopcart_page);
         Order Shopcart = MainController.getShopCart();
         Coffee Covfefe = MainController.getCovfefe();
-        Order finalOrder = new Order();
+        MainController MC = MainController.getMainController();
         double coffeeTotal = Shopcart.getCoffeeTotal();
         double donutTotal = Shopcart.getDonutTotal();
         Sub_Total = coffeeTotal + donutTotal;
@@ -61,8 +63,8 @@ public class shoppingCartPage extends AppCompatActivity {
         BasketItems.setAdapter(adapter);
         adapter.addAll(Shopcart.getDOrderItems());
         adapter.addAll(Shopcart.getCOrderItems());
-
-        // set OnClickListener for RemoveSelected button
+        addcartlist.addAll(Shopcart.getCOrderItems());
+        addcartlist.addAll(Shopcart.getDOrderItems());
 
         BasketItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -86,8 +88,10 @@ public class shoppingCartPage extends AppCompatActivity {
                         String item = (String) arrayAdapter.getItem(listIndex);
                         arrayAdapter.remove(item);
                         arrayAdapter.notifyDataSetChanged();
+                        addcartlist.remove(item);
 
                         if (item.contains("[")) {
+//                            addcartlist.remove(item);
                             double itemPrice = getCoffeePrice(item, Covfefe);
                             Sub_Total -= itemPrice;
                             Sale_Tax = 0.0625 * Sub_Total;
@@ -102,6 +106,43 @@ public class shoppingCartPage extends AppCompatActivity {
                     }
                 } else {
                     Toast.makeText(getApplicationContext(), "No item selected", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+
+        PlaceOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Order finalOrder = new Order();
+//                ListAdapter adapter = BasketItems.getAdapter();
+//                    Toast.makeText(getApplicationContext(), "No item selected", Toast.LENGTH_SHORT).show();
+//                ArrayList<String> orderItems = new ArrayList<>();
+//                double totalPrice = 0.0;
+//                orderItems.addAll(Shopcart.getCOrderItems());
+//                orderItems.addAll(Shopcart.getDOrderItems());
+
+//                for (int i = 0; i < adapter.getCount(); i++) {
+//                    String item = adapter.getItem(i).toString();
+//                    orderItems.add(item);
+//                }
+
+//                String totalPriceString = TotalTF.getText().toString().replace("$", "");
+//                totalPrice = Double.parseDouble(totalPriceString);
+
+                if (addcartlist.isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "Cart is empty", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Order Placed", Toast.LENGTH_SHORT).show();
+                    finalOrder.setFinalOrder(addcartlist, Total);
+                    MC.addOrder(finalOrder);
+//                    addcartlist.clear();
+                    addcartlist = new ArrayList<>();
+                    adapter.clear();
+                    adapter.add("Order Placed");
+                    Sub_TotalTF.setText(String.format("$%.2f", 0.00));
+                    Sales_TaxTF.setText(String.format("$%.2f", 0.00));
+                    TotalTF.setText(String.format("$%.2f", 0.00));
                 }
             }
         });

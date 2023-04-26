@@ -188,7 +188,7 @@ public class CoffeeOrderPage extends AppCompatActivity {
         this.CoffeOrdered.add(size + "(" + num + ") " + Covfefe.getSelectedAddIn());
         Shopcart.setCOrder(CoffeOrdered, Total);
 
-        Toast.makeText(this, "Order added to cart", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Order Placed", Toast.LENGTH_SHORT).show();
     }
 
 
