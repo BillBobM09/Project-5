@@ -90,6 +90,8 @@ public class shoppingCartPage extends AppCompatActivity {
                         arrayAdapter.notifyDataSetChanged();
                         addcartlist.remove(item);
 
+
+
                         if (item.contains("[")) {
 //                            addcartlist.remove(item);
                             double itemPrice = getCoffeePrice(item, Covfefe);
@@ -100,6 +102,15 @@ public class shoppingCartPage extends AppCompatActivity {
                             Sub_TotalTF.setText(String.format("$%.2f", Sub_Total));
                             Sales_TaxTF.setText(String.format("$%.2f", Sale_Tax));
                             TotalTF.setText(String.format("$%.2f", Total));
+                        }else{
+                            double DonutPrice=getDonutPrice(item);
+                            Sub_Total-=DonutPrice;
+                            Sale_Tax = 0.0625 * Sub_Total;
+                            Total = Sub_Total + Sale_Tax;
+                            Sub_TotalTF.setText(String.format("$%.2f", Sub_Total));
+                            Sales_TaxTF.setText(String.format("$%.2f", Sale_Tax));
+                            TotalTF.setText(String.format("$%.2f", Total));
+
                         }
 
                         listIndex = -1;
@@ -149,7 +160,33 @@ public class shoppingCartPage extends AppCompatActivity {
 
     }
 
+private double getDonutPrice(String DonutItem) {
 
+    StringTokenizer tokenizer = new StringTokenizer(DonutItem, "()");
+    String name = tokenizer.nextToken();
+    int quantity = Integer.parseInt(tokenizer.nextToken());
+    String addInsString = tokenizer.nextToken();
+    double price = 0;
+    double CdonutPrice = 1.59;
+    double YdonutPrice = 1.79;
+    double HdonutPrice = 0.39;
+    if (name.compareTo("Vanilla Frosted") == 0 || name.compareTo("Strawberry Frosted") == 0 || name.compareTo("Chocolate Frosted") == 0 || name.compareTo("Glazed") == 0
+            || name.compareTo("Sugar") == 0 || name.compareTo("Jelly") == 0) {
+
+        price = CdonutPrice * quantity;
+        return price;
+    } else if (name.compareTo("Boston Cream") == 0 || name.compareTo("Vanilla Sprinkled") == 0 || name.compareTo("Bavarian Cream") == 0) {
+
+        price = YdonutPrice * quantity;
+        return price;
+
+    } else{
+
+        price = HdonutPrice * quantity;
+        return price;
+
+    }
+}
 
     private double getCoffeePrice(String coffeeItem, Coffee Covfefe) {
         // Split the coffee item string into different parts using the delimiters
